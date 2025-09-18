@@ -1,24 +1,57 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vigil-AI — AI Red Teaming</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;max-width:800px;margin:40px auto;padding:0 16px;color:#111}
-h1{font-size:28px;margin:0 0 12px}
-.cta{display:inline-block;padding:10px 14px;background:#0b5fff;color:#fff;border-radius:8px;text-decoration:none}
-img{max-width:100%;border:1px solid #ddd}
-</style></head>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"><script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>The Vigil AI — AI Red Teaming</title>
+
+  <!-- Calendly popup assets -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;max-width:800px;margin:40px auto;padding:0 16px;color:#111;line-height:1.5}
+    h1{font-size:28px;margin:0 0 12px}
+    .cta{display:inline-block;padding:10px 14px;background:#0b5fff;color:#fff;border-radius:8px;text-decoration:none}
+    img{max-width:100%;border:1px solid #ddd}
+    ul{margin:8px 0 24px}
+  </style>
+</head>
 <body>
-<h1>Vigil-AI — AI Red Teaming & Security</h1>
-<p><strong>We attack your AI so attackers can't.</strong> Prompt injection, data leakage, and model evasion checks.</p>
-<p><a class="cta" href="https://calendly.com/bryan-s-morris">Book a free 15-min intro</a></p>
-<h3>Day 0 Proof</h3>
-<img src="demos/day0_counterfit_cli_v2.png" alt="Counterfit CLI screenshot">
-<h3>Services</h3>
-<ul>
-<li>AI Security Audit — $2.5k (3-day assessment, one model/API)</li>
-<li>AI Red Team Retainer — $3k/mo (monthly simulated attacks + report)</li>
-<li>Training & Playbook — $5k (half-day workshop)</li>
-</ul>
-<p>Contact: bryan@yourdomain.com</p>
-</body></html>
+  <h1>The Vigil AI — AI Red Teaming & Security</h1>
+  <p><strong>We attack your AI so attackers can't.</strong> Prompt injection, data leakage, and model evasion checks.</p>
+
+  <!-- Button triggers Calendly popup -->
+  <p><a class="cta" id="bookBtn" href="#">Book a free 15-min intro</a></p>
+
+  <h3>Day 0 Proof</h3>
+  <img src="demos/day0_counterfit_cli_v2.png" alt="Counterfit CLI screenshot">
+
+  <h3>Services</h3>
+  <ul>
+    <li>AI Security Audit — $2.5k (3-day assessment, one model/API)</li>
+    <li>AI Red Team Retainer — $3k/mo (monthly simulated attacks + report)</li>
+    <li>Training & Playbook — $5k (half-day workshop)</li>
+  </ul>
+
+  <p>Contact: bryan@thevigilai.com</p>
+
+  <!-- Attach click handler with fallback if Calendly script hasn't loaded -->
+  <script>
+    (function () {
+      var btn = document.getElementById('bookBtn');
+      var url = 'https://calendly.com/bryan-s-morris';
+      function openCalendly(e){
+        e.preventDefault();
+        if (window.Calendly && typeof Calendly.initPopupWidget === 'function') {
+          Calendly.initPopupWidget({ url: url });
+        } else {
+          // Fallback: open Calendly page directly
+          window.location.href = url;
+        }
+      }
+      if (btn) btn.addEventListener('click', openCalendly);
+    })();
+  </script>
+</body>
+</html>
